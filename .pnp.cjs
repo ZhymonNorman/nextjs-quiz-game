@@ -39,7 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fortawesome/free-regular-svg-icons", "npm:6.2.0"],\
             ["@fortawesome/free-solid-svg-icons", "npm:6.2.0"],\
             ["@fortawesome/react-fontawesome", "virtual:f5776531ee591eaa7d68d4b92af30530c0623af81dd5822838fc36d25c222caf7268fd472866d93a933e43f49e301b85f5d1ad713f6e929ffa7bff161e7bb4aa#npm:0.2.0"],\
-            ["@types/lodash", "npm:4.14.184"],\
+            ["@types/lodash", "npm:4.14.185"],\
             ["@types/node", "npm:18.7.14"],\
             ["@types/react", "npm:18.0.18"],\
             ["@types/react-dom", "npm:18.0.6"],\
@@ -873,6 +873,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.184-aec91d64ae-6d9a4d67f7.zip/node_modules/@types/lodash/",\
           "packageDependencies": [\
             ["@types/lodash", "npm:4.14.184"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:4.14.185", {\
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.185-974674435a-f81d13da5e.zip/node_modules/@types/lodash/",\
+          "packageDependencies": [\
+            ["@types/lodash", "npm:4.14.185"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4015,7 +4022,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fortawesome/free-regular-svg-icons", "npm:6.2.0"],\
             ["@fortawesome/free-solid-svg-icons", "npm:6.2.0"],\
             ["@fortawesome/react-fontawesome", "virtual:f5776531ee591eaa7d68d4b92af30530c0623af81dd5822838fc36d25c222caf7268fd472866d93a933e43f49e301b85f5d1ad713f6e929ffa7bff161e7bb4aa#npm:0.2.0"],\
-            ["@types/lodash", "npm:4.14.184"],\
+            ["@types/lodash", "npm:4.14.185"],\
             ["@types/node", "npm:18.7.14"],\
             ["@types/react", "npm:18.0.18"],\
             ["@types/react-dom", "npm:18.0.6"],\
