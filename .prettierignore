@@ -1,0 +1,11 @@
+node_modules
+.next
+public
+.yarn
+packages/apps/**/.yarn
+packages/apps/**/node_modules
+packages/apps/**/public
+packages/ui/public
+packages/ui/.storybook
+packages/ui/node_modules
+packages/apps/elevationchurch/**/**

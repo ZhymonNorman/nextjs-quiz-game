@@ -1,0 +1,41 @@
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    amd: true,
+    node: true,
+    es6: true,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:prettier/recommended',
+    'next',
+    'next/core-web-vitals',
+    'plugin:tailwindcss/recommended',
+  ],
+  rules: {
+    'prettier/prettier': 'warn',
+    'react/react-in-jsx-scope': 'off',
+    'jsx-a11y/anchor-is-valid': [
+      'error',
+      {
+        components: ['Link'],
+        specialLink: ['hrefLeft', 'hrefRight'],
+        aspects: ['invalidHref', 'preferButton'],
+      },
+    ],
+    'react/prop-types': 0,
+    'no-unused-vars': 0,
+    'no-useless-escape': 'warn',
+    'react/no-unescaped-entities': 0,
+    'tailwindcss/classnames-order': 0,
+    'no-unsafe-optional-chaining': 'warn',
+    'tailwindcss/enforces-negative-arbitrary-values': 'error',
+    'tailwindcss/enforces-shorthand': 'error',
+    'tailwindcss/migration-from-tailwind-2': 'warn',
+    'tailwindcss/no-arbitrary-value': 'off',
+    'tailwindcss/no-custom-classname': 0,
+    'tailwindcss/no-contradicting-classname': 'error',
+  },
+};
