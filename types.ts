@@ -19,6 +19,18 @@ export interface QuizApiResType {
 export interface UserAnswer {
   num: number;
   question: string;
-  answer: string;
-  correctAnswer: 'True' | 'False';
+  answer: boolean;
+  correctAnswer: boolean;
+}
+
+export function getBoolFromText(text: string): boolean {
+  let bool = false;
+
+  if (text === 'True') {
+    bool = true;
+  } else if (text === 'False') {
+    bool = false;
+  }
+
+  return bool;
 }

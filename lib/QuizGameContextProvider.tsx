@@ -1,12 +1,10 @@
 import {
   createContext,
   useContext,
-  FC,
   useState,
   ReactNode,
-  Children,
+  useEffect,
 } from 'react';
-
 import { QuizApiResType, Question, UserAnswer } from '@types';
 
 export interface IQuizGameContext {
@@ -37,7 +35,7 @@ const useQuizGameContext = (): IQuizGameContext => {
 function QuizGameProvider({ children }: Props) {
   const [questions, _setQuestions] = useState<Question[]>([]);
   const [userAnswers, _submitAnswer] = useState<UserAnswer[]>([]);
-  const [currentQuestion, _setCurrentQuestion] = useState<number>(0);
+  const [currentQuestionIndex, _setCurrentQuestion] = useState<number>(0);
 
   const QuizContextValue: IQuizGameContext = {
     questions,
@@ -46,12 +44,13 @@ function QuizGameProvider({ children }: Props) {
       _setQuestions(questions.results);
     },
     submitAnswer: (newAnswer) => {
+      console.log({ newAnswer });
       let newArray = userAnswers;
       newArray.push(newAnswer);
-      _setCurrentQuestion(currentQuestion + 1);
+      _setCurrentQuestion(currentQuestionIndex + 1);
       _submitAnswer(newArray);
     },
-    currentQuestionIndex: 0,
+    currentQuestionIndex: currentQuestionIndex,
   };
 
   return (

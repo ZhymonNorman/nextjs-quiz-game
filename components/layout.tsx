@@ -8,7 +8,7 @@ interface Props {
 
 export default function Layout({ children, header, footer }: Props) {
   return (
-    <div className="scale-in-center flex flex-col p-8 bg-zinc-200 text-center shadow-md h-[30rem] mt-36 mx-8 rounded-xl lg:mt-24 lg:mx-auto lg:max-w-lg">
+    <div className="scale-in-center justify-evenly flex flex-col p-8 bg-zinc-200 text-center shadow-md min-h-[40rem] mt-36 mx-4 rounded-xl lg:mt-24 lg:mx-auto lg:max-w-lg">
       {header}
       {children}
       {footer}
