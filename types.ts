@@ -19,5 +19,6 @@ export interface QuizApiResType {
 export interface UserAnswer {
   num: number;
   question: string;
+  answer: string;
   correctAnswer: 'True' | 'False';
 }

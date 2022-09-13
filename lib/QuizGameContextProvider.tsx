@@ -37,7 +37,7 @@ const useQuizGameContext = (): IQuizGameContext => {
 function QuizGameProvider({ children }: Props) {
   const [questions, _setQuestions] = useState<Question[]>([]);
   const [userAnswers, _submitAnswer] = useState<UserAnswer[]>([]);
-  const [currentQuestion, _setCurrentQuestion] = useState<number>(1);
+  const [currentQuestion, _setCurrentQuestion] = useState<number>(0);
 
   const QuizContextValue: IQuizGameContext = {
     questions,
@@ -51,7 +51,7 @@ function QuizGameProvider({ children }: Props) {
       _setCurrentQuestion(currentQuestion + 1);
       _submitAnswer(newArray);
     },
-    currentQuestionIndex: 1,
+    currentQuestionIndex: 0,
   };
 
   return (

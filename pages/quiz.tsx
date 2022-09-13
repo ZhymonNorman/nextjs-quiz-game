@@ -5,6 +5,7 @@ import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import isEmpty from 'lodash/isEmpty';
 import { useRouter } from 'next/router';
+import parse from 'html-react-parser';
 
 const Quiz: NextPage = () => {
   const { questions, currentQuestionIndex } = useQuizGame();
@@ -28,15 +29,18 @@ const Quiz: NextPage = () => {
     <Layout
       header={
         <h1 className="font-bold text-xl w-48 mx-auto md:w-auto lg:text-2xl">
-          {questions[0].category}
+          {questions[currentQuestionIndex].category}
         </h1>
       }
     >
       <div className="flex flex-col w-56 h-full justify-between py-8 text-center mx-auto lg:w-96">
         <p className="text-lg border-2 rounded-md border-black/10 h-full my-6 p-8">
-          {questions[currentQuestionIndex].question}
+          {questions[currentQuestionIndex].question &&
+            parse(questions[currentQuestionIndex].question)}
         </p>
-        <span className="font-semibold flex flex-row w-fit mx-auto">{`${currentQuestionIndex}/${numQuestions}`}</span>
+        <span className="font-semibold flex flex-row w-fit mx-auto text-white bg-zinc-500 px-3 py-1 tracking-wider rounded-xl">{`${
+          currentQuestionIndex + 1
+        } of ${numQuestions}`}</span>
       </div>
     </Layout>
   );

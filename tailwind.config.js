@@ -11,9 +11,6 @@ module.exports = {
         slate: '#f4f5f7',
         persianOrange: '#CB904D',
       },
-      fontFamily: {
-        mulish: ['Mulish', 'sans serif'],
-      },
     },
   },
 };
