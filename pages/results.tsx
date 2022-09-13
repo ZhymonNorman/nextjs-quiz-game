@@ -11,6 +11,7 @@ const Results: NextPage = () => {
   const { push } = useRouter();
 
   useEffect(() => {
+    // if quesitons/answers have not be loaded go to index.
     if (isEmpty(userAnswers) || isEmpty(questions)) {
       push('/');
     }

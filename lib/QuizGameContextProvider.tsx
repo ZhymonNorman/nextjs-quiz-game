@@ -14,6 +14,7 @@ export interface IQuizGameContext {
   questions: Question[];
   submitAnswer(newAnswer: UserAnswer): void;
   userAnswers: UserAnswer[];
+  currentQuestionIndex: number;
 }
 
 interface Props {
@@ -36,6 +37,7 @@ const useQuizGameContext = (): IQuizGameContext => {
 function QuizGameProvider({ children }: Props) {
   const [questions, _setQuestions] = useState<Question[]>([]);
   const [userAnswers, _submitAnswer] = useState<UserAnswer[]>([]);
+  const [currentQuestion, _setCurrentQuestion] = useState<number>(1);
 
   const QuizContextValue: IQuizGameContext = {
     questions,
@@ -46,8 +48,10 @@ function QuizGameProvider({ children }: Props) {
     submitAnswer: (newAnswer) => {
       let newArray = userAnswers;
       newArray.push(newAnswer);
+      _setCurrentQuestion(currentQuestion + 1);
       _submitAnswer(newArray);
     },
+    currentQuestionIndex: 1,
   };
 
   return (
