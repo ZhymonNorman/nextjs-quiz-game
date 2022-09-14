@@ -14,7 +14,7 @@ const Quiz: NextPage = () => {
   const { questions, currentQuestionIndex, userAnswers, submitAnswer } =
     useQuizGame();
   const { push } = useRouter();
-  const [numQuestions, setNumQuestions] = useState<number>(0);
+  const [numberOfQuestions, setNumQuestions] = useState<number>(0);
 
   const handleAnswer = (selection: boolean) => {
     const answer: UserAnswer = {
@@ -41,10 +41,10 @@ const Quiz: NextPage = () => {
   }, [questions]);
 
   useEffect(() => {
-    if (userAnswers.length === questions.length) {
-      console.log('all questions answered');
+    if (userAnswers.length >= questions.length) {
+      push('/results');
     }
-  }, [userAnswers]);
+  }, [userAnswers, currentQuestionIndex]);
 
   if (isEmpty(questions)) return <Loading />;
 
@@ -54,14 +54,16 @@ const Quiz: NextPage = () => {
     <Layout
       header={
         <h1 className="font-bold text-xl w-48 mx-auto md:w-auto lg:text-2xl">
-          {questions[currentQuestionIndex].category}
+          {questions[currentQuestionIndex] &&
+            questions[currentQuestionIndex].category}
         </h1>
       }
     >
-      <div className="flex flex-col w-56 h-full justify-between py-4 text-center mx-auto lg:w-96">
+      <div className="flex flex-col h-full justify-between py-4 text-center mx-auto lg:w-96">
         <div className=" flex flex-col justify-between border-2 rounded-md border-black/20 h-full mt-3 mb-6 p-8">
           <p className="text-lg">
-            {questions[currentQuestionIndex].question &&
+            {questions[currentQuestionIndex] &&
+              questions[currentQuestionIndex].question &&
               parse(questions[currentQuestionIndex].question)}
           </p>
           <div className="hidden flex-row lg:flex">
@@ -80,7 +82,7 @@ const Quiz: NextPage = () => {
               <span className="ml-1">false</span>
             </button>
           </div>
-          <div className="flex flex-row lg:hidden">
+          <div className="flex flex-row mb-3 pt-8 lg:hidden">
             <button
               onClick={() => handleAnswer(true)}
               className="w-fit tracking-wider text-lg font-semibold mx-auto uppercase px-6 py-3 text-white transition transform-gpu ease-in-out shadow-sm rounded-md bg-green-600 hover:bg-green-600/50 hover:scale-105"
@@ -97,7 +99,7 @@ const Quiz: NextPage = () => {
         </div>
         <span className="font-semibold flex flex-row w-fit mx-auto text-black/30 bg-turquoiseBlue px-3 py-1 tracking-wider rounded-xl">{`${
           currentQuestionIndex + 1
-        } of ${numQuestions}`}</span>
+        } of ${numberOfQuestions}`}</span>
       </div>
     </Layout>
   );
