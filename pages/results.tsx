@@ -56,9 +56,9 @@ const Results: NextPage = () => {
       <div className="flex flex-col w-56 h-[40rem] justify-between py-8 text-center mx-auto lg:w-96">
         <div className="overflow-y-auto pb-12">
           <ul className="space-y-4 text-left text-md">
-            {userAnswers.map((userAnswer) => {
+            {userAnswers.map((userAnswer, index) => {
               return (
-                <li>
+                <li key={`answer-${index}`}>
                   <span className="flex flex-row items-center leading-5 space-x-2">
                     {userAnswer.answer === userAnswer.correctAnswer ? (
                       <FontAwesomeIcon
